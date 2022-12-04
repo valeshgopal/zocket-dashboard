@@ -1,6 +1,6 @@
 {
   "name": "zocket-db",
-  "homepage": "https://valeshgopal.github.io/zocket-dashboard"
+  "homepage": "https://valeshgopal.github.io/zocket-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
