@@ -104,7 +104,7 @@ const CreateCampaign = () => {
 
     console.log('campaign', campaign);
 
-    const response = await fetch('http://localhost:4000/api/campaigns/', {
+    const response = await fetch('/api/campaigns/', {
       method: 'POST',
       body: JSON.stringify(campaign),
       headers: {

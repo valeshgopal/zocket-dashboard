@@ -18,7 +18,7 @@ const CampaignsData = ({ platformOption, statusOption, searchTerm }) => {
 
   useEffect(() => {
     const getCampaigns = async () => {
-      const response = await fetch('http://localhost:4000/api/campaigns');
+      const response = await fetch('/api/campaigns');
       const data = await response.json();
 
       const filteredData = data.filter(
@@ -59,7 +59,7 @@ const CampaignsData = ({ platformOption, statusOption, searchTerm }) => {
 
   useEffect(() => {
     const getCampaigns = async () => {
-      const response = await fetch('http://localhost:4000/api/campaigns');
+      const response = await fetch('/api/campaigns');
       const data = await response.json();
 
       const searchResults = data.filter((campaign) =>
@@ -97,19 +97,16 @@ const CampaignsData = ({ platformOption, statusOption, searchTerm }) => {
 
   useEffect(() => {
     const updateCampaignStatus = async () => {
-      const response = await fetch(
-        `http://localhost:4000/api/campaigns/${updateId}`,
-        {
-          method: 'PATCH',
-          body: JSON.stringify({
-            active: !updateItem?.active,
-            status: updateItem?.active ? 'Paused' : 'Live now',
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
+      const response = await fetch(`/api/campaigns/${updateId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          active: !updateItem?.active,
+          status: updateItem?.active ? 'Paused' : 'Live now',
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       const data = await response.json();
       setPayload(data);
       dispatch({ type: 'CHANGE_CAMPAIGN_STATUS', payload: data });
